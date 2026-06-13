@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salesforce Security Observatory</title>
+  <meta name="description" content="Native Salesforce security scanning. Free to install. No data leaves your org.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <span class="brand">Salesforce Security Observatory</span>
+      <a class="nav-cta" href="#request">Request Install Link</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Salesforce Security Observatory</h1>
+        <p class="strapline">Native Salesforce security scanning. Free to install. No data leaves your org.</p>
+        <a class="btn btn-primary" href="#request">Request Install Link</a>
+      </div>
+    </section>
+
+    <!-- What it does -->
+    <section class="section" id="what-it-does">
+      <div class="container">
+        <h2>What it does</h2>
+        <ul class="feature-list">
+          <li>
+            <h3>Identity &amp; access</h3>
+            <p>Reviews user identity configuration and access settings to surface risky or misaligned posture.</p>
+          </li>
+          <li>
+            <h3>OAuth &amp; connected apps</h3>
+            <p>Inspects OAuth grants and connected app configuration for over-broad or stale authorisations.</p>
+          </li>
+          <li>
+            <h3>API configuration</h3>
+            <p>Checks API access settings and integration surface area against least-privilege expectations.</p>
+          </li>
+          <li>
+            <h3>Named Credentials &amp; external endpoints</h3>
+            <p>Examines Named Credentials and outbound endpoints so external callout configuration stays accountable.</p>
+          </li>
+          <li>
+            <h3>Permissions</h3>
+            <p>Maps permission sets and profile grants to highlight excessive or unexpected privilege.</p>
+          </li>
+          <li>
+            <h3>Licences</h3>
+            <p>Reports on licence allocation to keep entitlement and access aligned across the org.</p>
+          </li>
+        </ul>
+        <p class="highlight">20+ automated checks. Results stored natively in your org. Nothing phoned home.</p>
+      </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="section section-alt" id="how-it-works">
+      <div class="container">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <li>Request the install link below.</li>
+          <li>Install the managed package in your Salesforce org.</li>
+          <li>Run the scanner and view your security posture dashboard.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <h2>About</h2>
+        <p>Built by <strong>Luca Pacini</strong>, Salesforce Architect.</p>
+        <p><a class="link" href="#linkedin">LinkedIn</a></p>
+        <p class="disclaimer">Independent tool, not affiliated with Salesforce Inc.</p>
+      </div>
+    </section>
+
+    <!-- Lead capture form -->
+    <section class="section section-alt" id="request">
+      <div class="container">
+        <h2>Request the install link</h2>
+        <p class="form-guidance">Thanks — you'll receive the install link within 24 hours.</p>
+        <form class="lead-form" action="https://formspree.io/f/REPLACE_ME" method="POST">
+          <div class="field">
+            <label for="first-name">First name</label>
+            <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
+          </div>
+          <div class="field">
+            <label for="last-name">Last name</label>
+            <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
+          </div>
+          <div class="field">
+            <label for="work-email">Work email</label>
+            <input type="email" id="work-email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="org-type">Org type</label>
+            <select id="org-type" name="org_type" required>
+              <option value="Production">Production</option>
+              <option value="Sandbox">Sandbox</option>
+              <option value="Developer">Developer</option>
+            </select>
+          </div>
+          <button class="btn btn-primary" type="submit">Send me the install link</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Luca Pacini</p>
+      <p>This tool is free to use. Source is proprietary.</p>
+      <p><a class="link" href="[LICENCE TERMS URL]">Licence terms</a></p>
+    </div>
+  </footer>
+</body>
+</html>

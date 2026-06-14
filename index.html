@@ -7,23 +7,27 @@
   <meta name="description" content="Free, native Salesforce security posture scanner. Read-only. Runs in your org. No data leaves your tenant. Built by a Salesforce Architect.">
   <meta name="author" content="Luca Pacini">
   <link rel="canonical" href="https://luca-pacini.github.io/sf-security-observatory/">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo-mark.png">
 
   <!-- Open Graph / link previews on LinkedIn, Slack, email -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="Salesforce Security Observatory">
   <meta property="og:description" content="Free, native Salesforce security posture scanner. Read-only. Runs in your org. No data leaves your tenant.">
   <meta property="og:url" content="https://luca-pacini.github.io/sf-security-observatory/">
+  <meta property="og:image" content="https://luca-pacini.github.io/sf-security-observatory/og-image.png">
   <meta property="og:locale" content="en_GB">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Salesforce Security Observatory">
   <meta name="twitter:description" content="Free, native Salesforce security posture scanner. Read-only. Runs in your org.">
+  <meta name="twitter:image" content="https://luca-pacini.github.io/sf-security-observatory/og-image.png">
 
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
-      <span class="brand">Salesforce Security Observatory</span>
+      <span class="brand"><img class="brand-logo" src="logo-mark.png" alt="SecuredForce Lab" width="32" height="32"> Salesforce Security Observatory</span>
       <a class="nav-cta" href="#request">Request access</a>
     </div>
   </header>
@@ -32,6 +36,7 @@
     <!-- Hero -->
     <section class="hero">
       <div class="container">
+        <img class="hero-logo" src="logo.png" alt="SecuredForce Lab — Salesforce Security Observatory" width="280">
         <h1>Salesforce Security Observatory</h1>
         <p class="strapline">Free, native Salesforce security posture scanner. Read-only. Runs entirely in your org. No data leaves your tenant.</p>
         <a class="btn btn-primary" href="#request">Request access</a>
@@ -113,19 +118,23 @@
     </section>
 
     <!-- Lead capture form -->
-    <section class="section" id="request">
+    <!-- Lead capture: email CTA -->
+    <section class="section request-section" id="request">
       <div class="container">
-        <h2>Request access</h2>
-        <p class="form-guidance">Send a short email and you'll receive the install link and setup guide. Include the org type you plan to install into (sandbox recommended first).</p>
-        <p class="email-cta">
-          <a class="btn btn-primary"
-             href="mailto:securedforcelab@gmail.com?subject=Security%20Observatory%20-%20install%20link%20request&body=Hi%20Luca%2C%0A%0AI'd%20like%20to%20try%20the%20Salesforce%20Security%20Observatory.%0A%0AName%3A%20%0AOrg%20type%20(sandbox%20%2F%20developer%20%2F%20production)%3A%20%0A%0AThanks">
-            Email to request the install link
-          </a>
-        </p>
-        <p class="email-fallback">
-          Or copy the address: <strong>securedforcelab@gmail.com</strong>
-        </p>
+        <div class="request-card">
+          <img class="request-mark" src="logo-mark.png" alt="SecuredForce Lab" width="64" height="64">
+          <h2>Request access</h2>
+          <p class="form-guidance">Send a short email and you'll receive the install link and setup guide. Include the org type you plan to install into — sandbox first is recommended.</p>
+          <p class="email-cta">
+            <a class="btn btn-primary btn-lg"
+               href="mailto:securedforcelab@gmail.com?subject=Security%20Observatory%20-%20install%20link%20request&body=Hi%20Luca%2C%0A%0AI'd%20like%20to%20try%20the%20Salesforce%20Security%20Observatory.%0A%0AName%3A%20%0AOrg%20type%20(sandbox%20%2F%20developer%20%2F%20production)%3A%20%0A%0AThanks">
+              Email to request the install link
+            </a>
+          </p>
+          <p class="email-fallback">
+            Or copy the address: <strong>securedforcelab@gmail.com</strong>
+          </p>
+        </div>
         <p class="privacy-notice">
           <strong>Privacy.</strong> Your email is used solely to send you the install link and setup guide. It is not shared with third parties and not used for marketing. UK GDPR lawful basis: legitimate interest in delivering the requested install. To request deletion or with any privacy question, email <a class="link" id="privacy-email" href="mailto:securedforcelab@gmail.com">securedforcelab@gmail.com</a>. Data controller: Luca Pacini.
         </p>

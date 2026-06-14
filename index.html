@@ -1,17 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Salesforce Security Observatory</title>
-  <meta name="description" content="Native Salesforce security scanning. Free to install. No data leaves your org.">
+  <title>Salesforce Security Observatory — Free Native Posture Scanner</title>
+  <meta name="description" content="Free, native Salesforce security posture scanner. Read-only. Runs in your org. No data leaves your tenant. Built by a Salesforce Architect.">
+  <meta name="author" content="Luca Pacini">
+  <link rel="canonical" href="https://luca-pacini.github.io/sf-security-observatory/">
+
+  <!-- Open Graph / link previews on LinkedIn, Slack, email -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Salesforce Security Observatory">
+  <meta property="og:description" content="Free, native Salesforce security posture scanner. Read-only. Runs in your org. No data leaves your tenant.">
+  <meta property="og:url" content="https://luca-pacini.github.io/sf-security-observatory/">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Salesforce Security Observatory">
+  <meta name="twitter:description" content="Free, native Salesforce security posture scanner. Read-only. Runs in your org.">
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <span class="brand">Salesforce Security Observatory</span>
-      <a class="nav-cta" href="#request">Request Install Link</a>
+      <a class="nav-cta" href="#request">Request access</a>
     </div>
   </header>
 
@@ -20,8 +33,9 @@
     <section class="hero">
       <div class="container">
         <h1>Salesforce Security Observatory</h1>
-        <p class="strapline">Native Salesforce security scanning. Free to install. No data leaves your org.</p>
-        <a class="btn btn-primary" href="#request">Request Install Link</a>
+        <p class="strapline">Free, native Salesforce security posture scanner. Read-only. Runs entirely in your org. No data leaves your tenant.</p>
+        <a class="btn btn-primary" href="#request">Request access</a>
+        <p class="hero-sub">Apache 2.0 licensed. Sandbox install recommended first.</p>
       </div>
     </section>
 
@@ -35,8 +49,8 @@
             <p>Reviews user identity configuration and access settings to surface risky or misaligned posture.</p>
           </li>
           <li>
-            <h3>OAuth &amp; connected apps</h3>
-            <p>Inspects OAuth grants and connected app configuration for over-broad or stale authorisations.</p>
+            <h3>OAuth &amp; Connected Apps</h3>
+            <p>Inspects OAuth grants and Connected App configuration for over-broad or stale authorisations. Existing Connected Apps remain in scope — new integrations should use External Client Apps from Spring '26.</p>
           </li>
           <li>
             <h3>API configuration</h3>
@@ -64,60 +78,69 @@
       <div class="container">
         <h2>How it works</h2>
         <ol class="steps">
-          <li>Request the install link below.</li>
-          <li>Install the managed package in your Salesforce org.</li>
-          <li>Run the scanner and view your security posture dashboard.</li>
+          <li>Request access below.</li>
+          <li>Deploy the source to your sandbox via SFDX using the install guide.</li>
+          <li>Configure the self-callout Named Credential (one-time, per the setup guide).</li>
+          <li>Run a scan and view your posture dashboard.</li>
         </ol>
+        <p class="note">v1 ships as an SFDX source deploy with a guided install. An unlocked package will follow once distribution stabilises.</p>
+      </div>
+    </section>
+
+    <!-- How it stays safe -->
+    <section class="section" id="how-it-stays-safe">
+      <div class="container">
+        <h2>How it stays safe</h2>
+        <ul class="proof-list">
+          <li><strong>Read-only by design.</strong> No remediation, no automatic changes to your org. Findings are advisory.</li>
+          <li><strong>Runs in your org.</strong> All scanning executes as Apex queueables in your tenant. There is no external service.</li>
+          <li><strong>No outbound destinations.</strong> The only callouts are to your own Tooling API via a self-callout Named Credential that you configure and authenticate.</li>
+          <li><strong>No secrets stored.</strong> Tokens, session IDs, certificate bodies and raw header values are never persisted or displayed. Sanitised evidence only.</li>
+          <li><strong>Least-privilege scopes.</strong> The setup requests only the OAuth scopes needed for Tooling API reads. No write, no impersonation.</li>
+          <li><strong>Kill switch documented.</strong> Revoke the principal at any time; scanning degrades gracefully with no fake results.</li>
+        </ul>
       </div>
     </section>
 
     <!-- About -->
-    <section class="section" id="about">
+    <section class="section section-alt" id="about">
       <div class="container">
         <h2>About</h2>
         <p>Built by <strong>Luca Pacini</strong>, Salesforce Architect.</p>
-        <p><a class="link" href="#linkedin">LinkedIn</a></p>
-        <p class="disclaimer">Independent tool, not affiliated with Salesforce Inc.</p>
+        <p><a class="link" id="linkedin-link" href="https://www.linkedin.com/in/lpacini" target="_blank" rel="noopener">LinkedIn</a></p>
+        <p class="disclaimer">Independent project. Not affiliated with, endorsed by, or sponsored by Salesforce Inc.</p>
       </div>
     </section>
 
     <!-- Lead capture form -->
-    <section class="section section-alt" id="request">
+    <section class="section" id="request">
       <div class="container">
-        <h2>Request the install link</h2>
-        <p class="form-guidance">Thanks — you'll receive the install link within 24 hours.</p>
-        <form class="lead-form" action="https://formspree.io/f/REPLACE_ME" method="POST">
-          <div class="field">
-            <label for="first-name">First name</label>
-            <input type="text" id="first-name" name="first_name" autocomplete="given-name" required>
-          </div>
-          <div class="field">
-            <label for="last-name">Last name</label>
-            <input type="text" id="last-name" name="last_name" autocomplete="family-name" required>
-          </div>
-          <div class="field">
-            <label for="work-email">Work email</label>
-            <input type="email" id="work-email" name="email" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="org-type">Org type</label>
-            <select id="org-type" name="org_type" required>
-              <option value="Production">Production</option>
-              <option value="Sandbox">Sandbox</option>
-              <option value="Developer">Developer</option>
-            </select>
-          </div>
-          <button class="btn btn-primary" type="submit">Send me the install link</button>
-        </form>
+        <h2>Request access</h2>
+        <p class="form-guidance">Send a short email and you'll receive the install link and setup guide. Include the org type you plan to install into (sandbox recommended first).</p>
+        <p class="email-cta">
+          <a class="btn btn-primary"
+             href="mailto:securedforcelab@gmail.com?subject=Security%20Observatory%20-%20install%20link%20request&body=Hi%20Luca%2C%0A%0AI'd%20like%20to%20try%20the%20Salesforce%20Security%20Observatory.%0A%0AName%3A%20%0AOrg%20type%20(sandbox%20%2F%20developer%20%2F%20production)%3A%20%0A%0AThanks">
+            Email to request the install link
+          </a>
+        </p>
+        <p class="email-fallback">
+          Or copy the address: <strong>securedforcelab@gmail.com</strong>
+        </p>
+        <p class="privacy-notice">
+          <strong>Privacy.</strong> Your email is used solely to send you the install link and setup guide. It is not shared with third parties and not used for marketing. UK GDPR lawful basis: legitimate interest in delivering the requested install. To request deletion or with any privacy question, email <a class="link" id="privacy-email" href="mailto:securedforcelab@gmail.com">securedforcelab@gmail.com</a>. Data controller: Luca Pacini.
+        </p>
+        <p class="advisory-notice">
+          <strong>Advisory only.</strong> Provided as-is under the Apache License 2.0. The Observatory is advisory output only — review every finding before action. No warranty of fitness or accuracy is given or implied.
+        </p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>&copy; 2026 Luca Pacini</p>
-      <p>This tool is free to use. Source is proprietary.</p>
-      <p><a class="link" href="[LICENCE TERMS URL]">Licence terms</a></p>
+      <p>&copy; 2026 Luca Pacini. Independent project.</p>
+      <p>Free under the <a class="link" href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener">Apache License 2.0</a>. Source is in a private repository pending public release.</p>
+      <p><a class="link" id="contact-email" href="mailto:securedforcelab@gmail.com">Contact</a></p>
     </div>
   </footer>
 </body>

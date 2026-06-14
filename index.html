@@ -143,9 +143,9 @@
           <h2>Request access</h2>
           <p class="form-guidance">Send a short email and you'll receive the install link and setup guide. Include the org type you plan to install into — sandbox first is recommended.</p>
           <p class="email-cta">
-            <a class="btn btn-primary btn-lg"
+            <a id="request-btn" class="btn btn-primary btn-lg"
                href="mailto:securedforcelab@gmail.com?subject=Security%20Observatory%20-%20install%20link%20request&body=Hi%20Luca%2C%0A%0AI'd%20like%20to%20try%20the%20Salesforce%20Security%20Observatory.%0A%0AName%3A%20%0AOrg%20type%20(sandbox%20%2F%20developer%20%2F%20production)%3A%20%0A%0AThanks">
-              Email to request the install link
+              Request the install link
             </a>
           </p>
           <p class="email-fallback">
@@ -169,5 +169,38 @@
       <p><a class="link" id="contact-email" href="mailto:securedforcelab@gmail.com">Contact</a></p>
     </div>
   </footer>
+  <script>
+    (function () {
+      var btn = document.getElementById('request-btn');
+      if (!btn) return;
+
+      var isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+      if (!isTouchDevice) {
+        // Desktop: no reliable mail client — copy email to clipboard instead
+        btn.textContent = 'Copy email address';
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var email = 'securedforcelab@gmail.com';
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(email).then(function () {
+              btn.textContent = '✓ Copied!';
+              btn.style.background = 'linear-gradient(135deg,#00994d,#00cc66)';
+              setTimeout(function () {
+                btn.textContent = 'Copy email address';
+                btn.style.background = '';
+              }, 2500);
+            }).catch(function () {
+              // clipboard blocked (e.g. iframe) — fall back to showing the address
+              btn.textContent = 'securedforcelab@gmail.com';
+            });
+          } else {
+            btn.textContent = 'securedforcelab@gmail.com';
+          }
+        });
+      }
+      // Touch devices: mailto: href fires naturally — no changes needed
+    })();
+  </script>
 </body>
 </html>

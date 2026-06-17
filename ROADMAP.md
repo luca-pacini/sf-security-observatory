@@ -111,9 +111,7 @@ v2 focuses on governance evidence and review workflows.
 
 ## Public safety
 
-The public project must not include customer data, org secrets, credentials, tokens, production screenshots, real scan exports, or real sensitive evidence.
-
-Public examples must use development orgs or synthetic data only.
+Everything shown in this project's public materials — examples, screenshots, and sample exports — comes from a development org using synthetic data, never customer data, org secrets, credentials, tokens, or real scan evidence.
 
 ## Maintainer
 
@@ -121,3 +119,5 @@ Maintained by SecuredForce Lab.
 
 Contact: securedforcelab@gmail.com
 LinkedIn: linkedin.com/in/lpacini
+
+Security Benchmark for Salesforce (SBS) control references are used under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). SBS is an independent project of the Salesforce-Security-Benchmark community — see [securitybenchmark.org](https://www.securitybenchmark.org).

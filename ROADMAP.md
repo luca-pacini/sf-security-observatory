@@ -109,7 +109,7 @@ v2 focuses on governance evidence and review workflows.
 | External reporting model | Provide replication-ready reporting objects or views. |
 | Framework export | Export SBS-aligned evidence for wider governance reporting. |
 
-## Public safety
+## Synthetic data only
 
 Everything shown in this project's public materials — examples, screenshots, and sample exports — comes from a development org using synthetic data, never customer data, org secrets, credentials, tokens, or real scan evidence.
 

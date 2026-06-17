@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roadmap — Salesforce Security Observatory</title>
+  <meta name="description" content="Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce. v1 now, SBS lifecycle next, additional scanners and governance evidence beyond that.">
+  <meta name="author" content="Luca Pacini">
+  <link rel="canonical" href="https://luca-pacini.github.io/sf-security-observatory/roadmap.html">
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="logo-mark.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Roadmap — Salesforce Security Observatory">
+  <meta property="og:description" content="Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce.">
+  <meta property="og:url" content="https://luca-pacini.github.io/sf-security-observatory/roadmap.html">
+  <meta property="og:image" content="https://luca-pacini.github.io/sf-security-observatory/og-image.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Roadmap — Salesforce Security Observatory">
+  <meta name="twitter:description" content="Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce.">
+  <meta name="twitter:image" content="https://luca-pacini.github.io/sf-security-observatory/og-image.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" style="text-decoration:none; color:inherit;">
+        <span class="brand"><img class="brand-logo" src="logo-mark.png" alt="SecuredForce Lab" width="32" height="32"> Salesforce Security Observatory</span>
+      </a>
+      <a class="nav-cta" href="index.html#request">Request access</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Inner hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Roadmap</h1>
+        <p class="strapline">Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce (SBS), with compound-risk correlation and native blind-spot visibility.</p>
+        <p class="hero-sub">v1 status: in active development. Last reviewed 2026-06-16. Independent reference implementation — not affiliated with Salesforce or the Security Benchmark for Salesforce project.</p>
+      </div>
+    </section>
+
+    <!-- Phases at a glance -->
+    <section class="section" id="phases">
+      <div class="container">
+        <h2>At a glance</h2>
+        <ul class="feature-list">
+          <li>
+            <h3>v1 — now</h3>
+            <p>SBS-aligned evidence, coverage map, retention discipline.</p>
+          </li>
+          <li>
+            <h3>v1.1 — next</h3>
+            <p>SBS lifecycle, version reconciliation, native capability expansion.</p>
+          </li>
+          <li>
+            <h3>v1.2 — later</h3>
+            <p>Additional scanners, deeper posture coverage.</p>
+          </li>
+          <li>
+            <h3>v2 — future</h3>
+            <p>Governance, attestation and accepted risk, entitlement comparison.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- What Observatory adds -->
+    <section class="section section-alt" id="adds">
+      <div class="container">
+        <h2>What Observatory adds</h2>
+        <p>A feature stays in scope only if it does at least one of the following. Everything else is removed, consolidated, or left as a link to Salesforce Setup.</p>
+        <ul class="proof-list">
+          <li><strong>Benchmark coverage.</strong> Maps observed evidence to SBS control IDs.</li>
+          <li><strong>Compound-risk correlation.</strong> Combines signals across users, permissions, OAuth, API access, sessions, endpoints, certificates, and licences.</li>
+          <li><strong>Native blind-spot visibility.</strong> Shows when a Salesforce-native capability is unavailable, disabled, or not configured.</li>
+          <li><strong>Drift and comparison.</strong> Shows what changed between retained scans.</li>
+        </ul>
+        <p class="note">Where Salesforce already provides the core native capability — Health Check, Security Center, Event Monitoring, Transaction Security — Observatory links to it or summarises it instead of duplicating it.</p>
+      </div>
+    </section>
+
+    <!-- v1 now -->
+    <section class="section" id="v1">
+      <div class="container">
+        <h2>v1 — now</h2>
+        <p>v1 focuses on trustworthy, explainable, short-term operational evidence.</p>
+        <ul class="proof-list">
+          <li><strong>Dashboard clarity.</strong> Every card shows its source, SBS mapping or Extended Check, coverage, and posture.</li>
+          <li><strong>SBS-aligned evidence.</strong> Scanner findings are mapped to SBS controls where applicable.</li>
+          <li><strong>Coverage map.</strong> Shows Automated, Partial Evidence, Manual Required, Not Covered, and Extended Check.</li>
+          <li><strong>Failure visibility.</strong> Scanner failures show as Unknown/Error, never as a false Pass.</li>
+          <li><strong>Retention discipline.</strong> Salesforce retains only the latest 3 completed scans.</li>
+          <li><strong>Safe export.</strong> CSV export is available for retained evidence and protected against formula injection.</li>
+          <li><strong>Scan comparison.</strong> If compared scans used different installed SBS versions, Observatory shows a version-mismatch warning.</li>
+          <li><strong>Local SBS metadata.</strong> Ships with bundled SBS metadata and supports controlled admin upload of updated SBS XML.</li>
+          <li><strong>Native blind spots.</strong> Cards show when a native Salesforce capability is unavailable, disabled, not configured, or outside the current scan scope.</li>
+          <li><strong>No remediation.</strong> Observatory reports posture only. It does not change security settings.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- v1 exclusions -->
+    <section class="section section-alt" id="v1-exclusions">
+      <div class="container">
+        <h2>What v1 is not</h2>
+        <ul class="proof-list">
+          <li><strong>No automatic remediation.</strong> No token revocation, API blocking, permission removal, endpoint change, certificate change, or key rotation.</li>
+          <li><strong>No AI summaries.</strong> No AI or Gemini advisory summaries.</li>
+          <li><strong>No Event Monitoring ingestion.</strong> No high-volume event-log ingestion.</li>
+          <li><strong>Not a Security Center clone.</strong> No attempt to replace Salesforce-native security products.</li>
+          <li><strong>No external warehouse sync.</strong> Long-term evidence storage is customer-owned and outside the app.</li>
+          <li><strong>No scheduled scans.</strong> v1 is manual.</li>
+          <li><strong>No formal compliance claim.</strong> SBS-aligned evidence and coverage visibility, not certification.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- v1.1 -->
+    <section class="section" id="v1-1">
+      <div class="container">
+        <h2>v1.1 — next</h2>
+        <p>SBS lifecycle management, safer version comparison, and native capability expansion.</p>
+        <ul class="proof-list">
+          <li><strong>SBS version reconciliation.</strong> Show controls added, removed, renamed, or changed between installed SBS versions.</li>
+          <li><strong>Safer cross-version comparison.</strong> Compare scans run under different SBS versions without a silent control-by-control mismatch.</li>
+          <li><strong>SBS upload history.</strong> Expand the upload log into a richer version history.</li>
+          <li><strong>SBS registry rollback.</strong> Support rollback using retained registry snapshots.</li>
+          <li><strong>Native capability register.</strong> Expand Setup paths, licence dependencies, posture, and limitations per card.</li>
+          <li><strong>Connected App and External Client App posture.</strong> Improve visibility where metadata access is safe and reliable.</li>
+          <li><strong>API Access Control posture.</strong> Detect and explain posture where feasible, without remediation.</li>
+          <li><strong>Storage estimate improvement.</strong> Improve retained evidence footprint estimates.</li>
+          <li><strong>Source-org awareness.</strong> Harden scan and comparison labels for future multi-org support.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- v1.2 -->
+    <section class="section section-alt" id="v1-2">
+      <div class="container">
+        <h2>v1.2 — later</h2>
+        <p>Additional scanner coverage, after v1 and v1.1 stability work is complete.</p>
+        <ul class="proof-list">
+          <li><strong>Public Content links.</strong> Optional scanner for public file or link exposure.</li>
+          <li><strong>Field History Tracking.</strong> Optional scanner for configured sensitive-field lists.</li>
+          <li><strong>Sites and Experience depth.</strong> Expand baseline exposure checks where safe.</li>
+          <li><strong>Transaction Security.</strong> Inventory only, no blocking or remediation.</li>
+          <li><strong>Permission source depth.</strong> Improve Profile, Permission Set, and Permission Set Group risk visibility.</li>
+          <li><strong>Licence alignment.</strong> Improve over-licensed, missing-access, and unexpected-access views.</li>
+          <li><strong>Historical baselines.</strong> Daily, weekly, and monthly labels, if storage-safe.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- v2 -->
+    <section class="section" id="v2">
+      <div class="container">
+        <h2>v2 — future</h2>
+        <p>Governance evidence and formal review workflows.</p>
+        <ul class="proof-list">
+          <li><strong>Manual attestation.</strong> Governance evidence for controls that cannot be scanned.</li>
+          <li><strong>N/A justification.</strong> Explain controls that do not apply.</li>
+          <li><strong>Accepted risk.</strong> Owner, expiry, justification, and review status.</li>
+          <li><strong>Functional role entitlement comparison.</strong> Compare expected access against actual access by role.</li>
+          <li><strong>Historical drift reporting.</strong> Repeated, worsened, improved, and resolved posture over time.</li>
+          <li><strong>External reporting model.</strong> Replication-ready reporting objects or views.</li>
+          <li><strong>Framework export.</strong> Export SBS-aligned evidence for wider governance reporting.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Public safety -->
+    <section class="section section-alt" id="public-safety">
+      <div class="container">
+        <h2>Public safety</h2>
+        <p>The public project must not include customer data, org secrets, credentials, tokens, production screenshots, real scan exports, or real sensitive evidence.</p>
+        <p>Public examples must use development orgs or synthetic data only.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Luca Pacini. Independent project.</p>
+      <p>Free under the <a class="link" href="https://www.apache.org/licenses/LICENSE-2.0" rel="noopener">Apache License 2.0</a>. Source is in a private repository pending public release.</p>
+      <p><a class="link" id="roadmap-link" href="roadmap.html">Roadmap</a></p>
+      <p><a class="link" id="contact-email" href="mailto:securedforcelab@gmail.com">Contact</a></p>
+    </div>
+  </footer>
+</body>
+</html>

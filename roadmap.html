@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Roadmap — Salesforce Security Observatory</title>
-  <meta name="description" content="Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce. v1 now, SBS lifecycle next, additional scanners and governance evidence beyond that.">
+  <meta name="description" content="Read-only Salesforce security evidence. v1 now focuses on explainability, failure visibility and retention discipline; SBS lifecycle comes next.">
   <meta name="author" content="Luca Pacini">
   <link rel="canonical" href="https://luca-pacini.github.io/sf-security-observatory/roadmap.html">
   <link rel="icon" type="image/png" href="favicon.png">
@@ -12,13 +12,13 @@
 
   <meta property="og:type" content="website">
   <meta property="og:title" content="Roadmap — Salesforce Security Observatory">
-  <meta property="og:description" content="Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce.">
+  <meta property="og:description" content="Read-only Salesforce security evidence. v1 now focuses on explainability, failure visibility and retention discipline.">
   <meta property="og:url" content="https://luca-pacini.github.io/sf-security-observatory/roadmap.html">
   <meta property="og:image" content="https://luca-pacini.github.io/sf-security-observatory/og-image.png">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Roadmap — Salesforce Security Observatory">
-  <meta name="twitter:description" content="Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce.">
+  <meta name="twitter:description" content="Read-only Salesforce security evidence. v1 now focuses on explainability, failure visibility and retention discipline.">
   <meta name="twitter:image" content="https://luca-pacini.github.io/sf-security-observatory/og-image.png">
 
   <link rel="stylesheet" href="styles.css">
@@ -38,8 +38,8 @@
     <section class="hero">
       <div class="container">
         <h1>Roadmap</h1>
-        <p class="strapline">Read-only Salesforce security evidence, mapped to the Security Benchmark for Salesforce (SBS), with compound-risk correlation and native blind-spot visibility.</p>
-        <p class="hero-sub">v1 status: in active development. Last reviewed 2026-06-16. Independent reference implementation — not affiliated with Salesforce or the Security Benchmark for Salesforce project.</p>
+        <p class="strapline">Read-only Salesforce security evidence with compound-risk correlation, explainability and native blind-spot visibility.</p>
+        <p class="hero-sub">v1 status: in active development. Last reviewed 2026-06-19. Independent reference implementation — not affiliated with Salesforce or the Security Benchmark for Salesforce project.</p>
       </div>
     </section>
 
@@ -50,11 +50,11 @@
         <ul class="feature-list">
           <li>
             <h3>v1 — now</h3>
-            <p>SBS-aligned evidence, coverage map, retention discipline.</p>
+            <p>Explainability foundation, failure visibility, retention discipline.</p>
           </li>
           <li>
             <h3>v1.1 — next</h3>
-            <p>SBS lifecycle, version reconciliation, native capability expansion.</p>
+            <p>SBS lifecycle, coverage map, version reconciliation.</p>
           </li>
           <li>
             <h3>v1.2 — later</h3>
@@ -74,7 +74,7 @@
         <h2>What Observatory adds</h2>
         <p>A feature stays in scope only if it does at least one of the following. Everything else is removed, consolidated, or left as a link to Salesforce Setup.</p>
         <ul class="proof-list">
-          <li><strong>Benchmark coverage.</strong> Maps observed evidence to SBS control IDs.</li>
+          <li><strong>Explainable evidence.</strong> Shows source, coverage status, posture, verification path, limitation and Observatory value-add.</li>
           <li><strong>Compound-risk correlation.</strong> Combines signals across users, permissions, OAuth, API access, sessions, endpoints, certificates, and licences.</li>
           <li><strong>Native blind-spot visibility.</strong> Shows when a Salesforce-native capability is unavailable, disabled, or not configured.</li>
           <li><strong>Drift and comparison.</strong> Shows what changed between retained scans.</li>
@@ -89,14 +89,11 @@
         <h2>v1 — now</h2>
         <p>v1 focuses on trustworthy, explainable, short-term operational evidence.</p>
         <ul class="proof-list">
-          <li><strong>Dashboard clarity.</strong> Every card shows its source, SBS mapping or Extended Check, coverage, and posture.</li>
-          <li><strong>SBS-aligned evidence.</strong> Scanner findings are mapped to SBS controls where applicable.</li>
-          <li><strong>Coverage map.</strong> Shows Automated, Partial Evidence, Manual Required, Not Covered, and Extended Check.</li>
+          <li><strong>Dashboard clarity.</strong> Cards show source, coverage status, posture, safe verification help, limitation and Observatory value-add where implemented.</li>
           <li><strong>Failure visibility.</strong> Scanner failures show as Unknown/Error, never as a false Pass.</li>
-          <li><strong>Retention discipline.</strong> Salesforce retains only the latest 3 completed scans.</li>
+          <li><strong>Retention discipline.</strong> Salesforce retains only the latest 3 completed scans once the v1 retention default correction is applied.</li>
           <li><strong>Safe export.</strong> CSV export is available for retained evidence and protected against formula injection.</li>
-          <li><strong>Scan comparison.</strong> If compared scans used different installed SBS versions, Observatory shows a version-mismatch warning.</li>
-          <li><strong>Local SBS metadata.</strong> Ships with bundled SBS metadata and supports controlled admin upload of updated SBS XML.</li>
+          <li><strong>Scan comparison.</strong> Completed scans can be compared using retained evidence. SBS-aware version mismatch warning is v1.1 scope.</li>
           <li><strong>Native blind spots.</strong> Cards show when a native Salesforce capability is unavailable, disabled, not configured, or outside the current scan scope.</li>
           <li><strong>No remediation.</strong> Observatory reports posture only. It does not change security settings.</li>
         </ul>
@@ -114,7 +111,8 @@
           <li><strong>Not a Security Center clone.</strong> No attempt to replace Salesforce-native security products.</li>
           <li><strong>No external warehouse sync.</strong> Long-term evidence storage is customer-owned and outside the app.</li>
           <li><strong>No scheduled scans.</strong> v1 is manual.</li>
-          <li><strong>No formal compliance claim.</strong> SBS-aligned evidence and coverage visibility, not certification.</li>
+          <li><strong>No formal compliance claim.</strong> v1 does not provide certification, compliance scoring, or a formal SBS compliance claim.</li>
+          <li><strong>No SBS control registry or coverage map yet.</strong> Local SBS metadata, static scanner-to-SBS mapping, admin XML upload and SBS coverage map are v1.1 scope.</li>
         </ul>
       </div>
     </section>
@@ -125,6 +123,9 @@
         <h2>v1.1 — next</h2>
         <p>SBS lifecycle management, safer version comparison, and native capability expansion.</p>
         <ul class="proof-list">
+          <li><strong>SBS-aligned evidence.</strong> Add static scanner-to-SBS mapping once local metadata is available.</li>
+          <li><strong>SBS coverage map.</strong> Show Automated, Partial Evidence, Manual Required, Not Covered and Extended Check.</li>
+          <li><strong>Local SBS metadata registry.</strong> Ship bundled SBS XML and support controlled admin upload of updated SBS XML.</li>
           <li><strong>SBS version reconciliation.</strong> Show controls added, removed, renamed, or changed between installed SBS versions.</li>
           <li><strong>Safer cross-version comparison.</strong> Compare scans run under different SBS versions without a silent control-by-control mismatch.</li>
           <li><strong>SBS upload history.</strong> Expand the upload log into a richer version history.</li>
@@ -132,6 +133,7 @@
           <li><strong>Native capability register.</strong> Expand Setup paths, licence dependencies, posture, and limitations per card.</li>
           <li><strong>Connected App and External Client App posture.</strong> Improve visibility where metadata access is safe and reliable.</li>
           <li><strong>API Access Control posture.</strong> Detect and explain posture where feasible, without remediation.</li>
+          <li><strong>Storage indicator and production scan warning.</strong> Show retained evidence footprint indicators and warn before additional production manual scans.</li>
           <li><strong>Storage estimate improvement.</strong> Improve retained evidence footprint estimates.</li>
           <li><strong>Source-org awareness.</strong> Harden scan and comparison labels for future multi-org support.</li>
         </ul>

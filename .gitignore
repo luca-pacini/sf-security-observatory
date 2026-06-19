@@ -1,0 +1,8 @@
+tmp/
+node_modules/
+.sf/
+.sfdx/
+.aider*
+.env
+*.log
+.DS_Store

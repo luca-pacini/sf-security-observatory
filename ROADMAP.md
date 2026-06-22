@@ -2,11 +2,11 @@
 
 Status: public roadmap
 v1 status: in active development
-Last reviewed: 2026-06-19
+Last reviewed: 2026-06-22
 
 Salesforce Security Observatory is a read-only Salesforce security evidence tool.
 
-It helps Salesforce teams review security posture by collecting sanitised scan evidence, showing compound risk, identifying native-control blind spots, and comparing retained scans over time. Security Benchmark for Salesforce alignment is planned as an explicit v1.1 foundation once the local registry, mappings and coverage map are implemented.
+It helps Salesforce teams review security posture by collecting sanitised scan evidence, showing compound risk, identifying native-control blind spots, comparing retained scans over time, and aligning evidence to the Security Benchmark for Salesforce. SBS alignment is a P0 v1 foundation, not a certification or formal compliance claim.
 
 This project is an independent reference implementation. It is not affiliated with Salesforce or the Security Benchmark for Salesforce project.
 
@@ -14,8 +14,8 @@ This project is an independent reference implementation. It is not affiliated wi
 
 ```mermaid
 flowchart LR
-  v1["v1 now<br/>Explainability foundation<br/>Failure visibility<br/>Retention discipline"]
-  v11["v1.1<br/>SBS lifecycle<br/>Coverage map<br/>Version reconciliation"]
+  v1["v1 now<br/>Explainability foundation<br/>SBS P0 foundation<br/>Retention discipline"]
+  v11["v1.1<br/>SBS lifecycle hardening<br/>Native capability expansion<br/>Additional posture polish"]
   v12["v1.2<br/>Additional scanners<br/>Deeper posture coverage"]
   v2["v2<br/>Governance<br/>Attestation and accepted risk<br/>Entitlement comparison"]
   v1 --> v11 --> v12 --> v2
@@ -28,6 +28,7 @@ A feature stays in scope only if it adds at least one of the following:
 | Value | Meaning |
 |---|---|
 | Explainable evidence | Shows source, coverage status, posture, verification path, limitation and Observatory value-add. |
+| Benchmark alignment | Maps observed and partial evidence to Security Benchmark for Salesforce controls where implementation is validated. |
 | Compound-risk correlation | Combines signals across users, permissions, OAuth, API access, sessions, endpoints, certificates, and licences. |
 | Native blind-spot visibility | Shows when a Salesforce-native capability is unavailable, disabled, not configured, or outside the current scan scope. |
 | Drift and comparison | Shows what changed between retained scans. |
@@ -36,15 +37,17 @@ Where Salesforce already provides the core native capability, Observatory links 
 
 ## v1 now
 
-v1 focuses on trustworthy, explainable, short-term operational evidence.
+v1 focuses on trustworthy, explainable, short-term operational evidence with SBS alignment as a P0 delivery item.
 
 | Area | Scope |
 |---|---|
 | Dashboard clarity | Clear dashboard cards with source, coverage status, posture, safe verification help, limitation and Observatory value-add where implemented. |
+| SBS P0 foundation | Local SBS metadata, controlled admin upload, static scanner-to-SBS mappings, SBS version display and the coverage map are v1 P0 work. No v1 claim should mark them complete until implemented and validated. |
+| Coverage map | Target v1 coverage view: Automated, Partial Evidence, Manual Required, Not Covered and Extended Check. |
 | Failure visibility | Scanner failures show as Unknown/Error, never as a false Pass. |
 | Retention discipline | Salesforce retains only the latest 3 completed scans once the v1 retention default correction is applied. |
 | Safe export | CSV export is available for retained evidence and is protected against formula injection. |
-| Scan comparison | Completed scans can be compared using retained evidence. SBS-aware version mismatch warning is v1.1 scope. |
+| Scan comparison | Completed scans can be compared using retained evidence, with SBS-aware labels and incomplete/version-mismatch caveats where supported. |
 | Native blind spots | Cards show when a native Salesforce capability is unavailable, disabled, not configured, or outside the current scan scope. |
 | No remediation | Observatory reports posture only. It does not change security settings. |
 
@@ -60,26 +63,19 @@ v1 does not include:
 | Security Center clone | No attempt to replace Salesforce-native security products. |
 | External warehouse sync | Long-term evidence storage is customer-owned and outside the app. |
 | Scheduled scans | v1 is manual. |
-| Formal SBS compliance claim | v1 does not provide certification, compliance scoring, or a formal SBS compliance claim. |
-| SBS control registry and coverage map | Local SBS metadata, static scanner-to-SBS mapping, admin XML upload and SBS coverage map are v1.1 scope. |
+| Formal SBS compliance claim | v1 provides SBS-aligned evidence and coverage visibility only where implemented. It does not provide certification or compliance scoring. |
 
 ## v1.1 next
 
-v1.1 focuses on SBS lifecycle management, safer version comparison, and native capability expansion.
+v1.1 focuses on hardening the SBS lifecycle and expanding native capability coverage after the v1 SBS foundation is stable.
 
 | Area | Direction |
 |---|---|
-| SBS-aligned evidence | Add static scanner-to-SBS mapping once local metadata is available. |
-| SBS coverage map | Show Automated, Partial Evidence, Manual Required, Not Covered and Extended Check. |
-| Local SBS metadata registry | Ship bundled SBS XML and support controlled admin upload of updated SBS XML. |
-| SBS version reconciliation | Show controls added, removed, renamed, or changed between installed SBS versions. |
-| Safer cross-version comparison | Compare scans run under different SBS versions without silent control-by-control mismatch. |
-| SBS upload history | Expand the upload log into a richer version history. |
-| SBS registry rollback | Support rollback using retained registry snapshots. |
+| SBS lifecycle hardening | Improve upload history, version history, rollback posture and registry administration after the v1 registry is stable. |
+| Advanced SBS reconciliation | Show deeper control changes between SBS versions after the v1 version display and caveat foundation is stable. |
 | Native capability register | Expand Setup paths, licence dependencies, posture, limitations, and Observatory action per card. |
-| Connected App and External Client App posture | Improve posture visibility where metadata access is safe and reliable. |
+| Connected App and External Client App posture | Improve visibility where metadata access is safe and reliable. |
 | API Access Control posture | Detect and explain posture where feasible without remediation. |
-| Storage indicator and production scan warning | Show retained evidence footprint indicators and warn before additional production manual scans. |
 | Storage estimate improvement | Improve retained evidence footprint estimates. |
 | Source-org awareness | Harden scan and comparison labels for future multi-org support. |
 
@@ -107,7 +103,7 @@ v2 focuses on governance evidence and review workflows.
 | N/A justification | Explain controls that do not apply. |
 | Accepted risk | Track owner, expiry, justification, and review status. |
 | Functional role entitlement comparison | Compare expected access against actual access by role. |
-| Historical drift reporting | Report repeated, worsened, improved, and resolved posture. |
+| Historical drift reporting | Report repeated, worsened, improved, and resolved posture over time. |
 | External reporting model | Provide replication-ready reporting objects or views. |
 | Framework export | Export SBS-aligned evidence for wider governance reporting. |
 
